@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 单独使用mybatis时添加
+	<properties resource="com/wwj/config/mysql-jdbc.properties">
+	</properties>
+	<environments default="development">
+
+		<environment id="development">
+
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	 -->
+	<!--  在 typeAliases 中设置了一个 package 的别名扫描路径，
+	 在该路径下的 Java 实体类都可以拥有一个别名（即首字母小写的类名） -->
+	 <!-- 别名定义 -->
+	 <typeAliases>
+	 	<package name="com.wwj.domain"/>
+	 </typeAliases>
+	<!-- 加载映射文件 -->
+    <!-- <mappers>
+        通过 resource 方法一次加载一个映射文件
+        <mapper resource="sqlmap/UserMapper.xml"/>
+        批量加载mapper
+        <package name="com.wwj.dao" />
+        <package name="com.wwj.mapper"/>
+    </mappers> -->
+</configuration>

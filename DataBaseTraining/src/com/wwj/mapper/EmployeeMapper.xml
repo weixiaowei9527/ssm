@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 在命名空间“com.demo.mybatis.step01.bo.UserMapper”中定义一个名为“selectUserByID”的映射语句 -->
+<!-- 命名空间是必须的，目的是区分映射语句,而且最好是和对应的Mapper接口同名 -->
+<mapper namespace="com.wwj.dao.EmployeeDao">
+    <!--配置查询结果集和对象的映射，可以不进行配置，默认不区分大小写匹配属性名和列名 -->
+    <resultMap id="employee_result" type="employee">
+        <id column="e_id" property="e_id" jdbcType="INTEGER"/>
+        <result column="e_name" property="e_name"/>
+        <result column="e_password" property="e_password"/>
+    </resultMap>
+
+    <!-- <select id="selectEmployeeByID" resultMap="employee">
+		select * from employee where e_id = #{id}
+	</select> -->
+	<!-- 插入记录 -->
+	<insert id="add">
+		insert into employee(e_name,e_password)values(#{e_name},#{e_password})
+	</insert>
+	<!-- 删除记录 -->
+	<!-- <delete id="deleteEmployeeById">
+		delete from employee where id = #{e_id}
+	</delete> -->
+	<!-- 修改记录 -->
+	<!-- <update id="updateEmployee">
+		update employee set e_name=#{e_name},e_password=#{e_password}
+		where e_id=#{e_id}
+	</update> -->
+	<!-- 分页查询 -->
+	<select id="page" resultMap="employee_result">
+		select * from employee limit #{start},#{end}
+	</select>
+</mapper>
